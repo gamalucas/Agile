@@ -1,17 +1,13 @@
 //
-//  BacklogTableVC.swift
+//  BacklogTableViewController.swift
 //  Agile
 //
-//  Created by LUCAS GAMA on 2/16/22.
+//  Created by LUCAS GAMA on 3/16/22.
 //
 
 import UIKit
 
-class BacklogTableVC: UITableViewController {
-    
-    var projectData =  ProjectDataLoader()
-    var projectIndex = 0
-    var backlogList = [String]()
+class BacklogTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,31 +18,28 @@ class BacklogTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        backlogList = projectData.getBacklog(idx: projectIndex)
-    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return backlogList.count
+        return 0
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "backlogCell", for: indexPath)
-        var cellConfig = cell.defaultContentConfiguration()
-        cellConfig.text = backlogList[indexPath.row]
-        cell.contentConfiguration = cellConfig
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.

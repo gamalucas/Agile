@@ -2,13 +2,23 @@
 //  DataModel.swift
 //  Agile
 //
-//  Created by LUCAS GAMA on 2/15/22.
+//  Created by LUCAS GAMA on 3/3/22.
 //
 
 import Foundation
+import RealmSwift
 
-struct DataModel: Codable {
-    var project: String
-    var project_description: String
-    var backlog: [String]
+class Project: Object {
+    @Persisted(primaryKey: true) var projectID = ObjectId.generate()
+    @Persisted var projectName = ""
+    @Persisted var projectDescription = ""
+}
+
+class Tasks: Object {
+    @Persisted(primaryKey: true) var tasksID = ObjectId.generate()
+    @Persisted var projectID: ObjectId
+    @Persisted var taskTitle = ""
+    @Persisted var taskDescription = ""
+    @Persisted var taskConcluded = false
+    @Persisted var taskSprint = ""
 }
