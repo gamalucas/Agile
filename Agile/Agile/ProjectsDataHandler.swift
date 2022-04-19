@@ -17,6 +17,11 @@ class ProjectsDataHandler {
         }
     }
     
+    init(){
+        // call db setup
+        dbSetup()
+    }
+    
     func dbSetup(){
         do {
             myRealm = try Realm()
@@ -52,41 +57,3 @@ class ProjectsDataHandler {
     
 }
 
-class TasksDataHandler {
-    var myRealm: Realm!
-    var taskData: Results<Tasks>
-    {
-        get{
-            return myRealm.objects(Tasks.self)
-        }
-    }
-    
-    func dbSetup(){
-        do{
-            myRealm = try Realm()
-        } catch let err {
-            print("Error during dbSetup: \(err.localizedDescription)")
-        }
-        print("Realm Tasks database location: \(Realm.Configuration.defaultConfiguration.fileURL!)")
-    }
-    
-    func getTasks(projectID: ObjectId)->[Tasks]{
-        var projectTasks = [Tasks]()
-        for i in taskData{
-            if i.projectID == projectID{
-                projectTasks.append(i)
-            }
-        }
-        return projectTasks
-    }
-    
-    func addTask(newTask: Tasks){
-        do {
-            try myRealm.write({
-                myRealm.add(newTask) //add a new project to database (this includes name and description)
-            })
-        } catch let err {
-            print("Error during addTask: \(err.localizedDescription)")
-        }
-    }
-}

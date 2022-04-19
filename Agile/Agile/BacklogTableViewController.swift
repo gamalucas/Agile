@@ -8,6 +8,11 @@
 import UIKit
 
 class BacklogTableViewController: UITableViewController {
+    
+    var projectsInstance = ProjectsDataHandler()
+    var currProject = Project()
+    var tasksInstance = TasksDataHandler()
+    var backlogList = [Tasks]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,28 +23,62 @@ class BacklogTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Current project id on Backlog: \(currProject.projectID)")
+        // need to call tasksInstance.dbSetup() in view did load
+        print("task data", tasksInstance.taskData.count)
+        backlogList = tasksInstance.getTasks(projectID: currProject.projectID)
+        print("Backlog list: \(backlogList)")
+        self.render()
+    }
+    
+    func render(){
+        backlogList = tasksInstance.getTasks(projectID: currProject.projectID)
+        tableView.reloadData()
+        print("Backlog list: \(backlogList)")
+    }
+    
+    @IBAction func unwindSegue (_ segue:UIStoryboardSegue){
+        if segue.identifier == "saveSegue"{
+            if let source = segue.source as? AddTaskViewController{
+                if source.addedTasktTitle.isEmpty == false{
+                    let newTaskItem = Tasks() //create new Project instance
+                    newTaskItem.taskTitle = source.addedTasktTitle
+                    newTaskItem.taskDescription = source.addedTaskDescription
+                    newTaskItem.projectID = currProject.projectID //associate a task to a project id
+                    newTaskItem.isOnBacklog = true //mark the task as 'backlog' since it is been created on Backlog page
+                    newTaskItem.taskConcluded = false
+                    self.tasksInstance.addTask(newTask: newTaskItem)
+                    self.render()
+                }
+            }
+        }
+    }
+    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return backlogList.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "backlogCell", for: indexPath)
 
         // Configure the cell...
-
+        var cellConfig = cell.defaultContentConfiguration()
+        cellConfig.text = backlogList[indexPath.row].taskTitle
+        
+        cell.contentConfiguration = cellConfig
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

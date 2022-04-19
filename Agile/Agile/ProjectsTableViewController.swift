@@ -19,7 +19,7 @@ class ProjectsTableViewController: UITableViewController {
         let nib = UINib(nibName: "ProjectTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "projectCell")
         
-        projectsInstance.dbSetup()
+//        projectsInstance.dbSetup()
         projectsList = projectsInstance.getProjects()
 
         // Uncomment the following line to preserve selection between presentations
@@ -55,8 +55,6 @@ class ProjectsTableViewController: UITableViewController {
                 if let indexPath = tableView.indexPathForSelectedRow?.row { 
                     let item = projectsList[indexPath]
                     destinationVC.title = item.projectName
-//                    destinationVC.projectID = String(item.projectID)
-//                    destinationVC.projectsInstance = projectsInstance
                     destinationVC.currProject = item
                     destinationVC.idxProject = indexPath
                 }

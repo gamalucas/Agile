@@ -14,6 +14,10 @@
 		CC5F64AA27CEDBD400141B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC5F64A827CEDBD400141B62 /* LaunchScreen.storyboard */; };
 		CC6ED99127DF958F008520B4 /* InsideProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6ED99027DF958F008520B4 /* InsideProjectViewController.swift */; };
 		CC6ED99327E24B4E008520B4 /* BacklogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6ED99227E24B4E008520B4 /* BacklogTableViewController.swift */; };
+		CC764EAE2804F4B500467477 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC764EAD2804F4B500467477 /* AddTaskViewController.swift */; };
+		CC764EB0280F006E00467477 /* TasksDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC764EAF280F006E00467477 /* TasksDataHandler.swift */; };
+		CC764EB2280F02C100467477 /* SprintsDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC764EB1280F02C100467477 /* SprintsDataHandler.swift */; };
+		CC764EB4280F104100467477 /* SprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC764EB3280F104100467477 /* SprintViewController.swift */; };
 		CC782A7027D06B4100710482 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CC782A6F27D06B4100710482 /* Realm */; };
 		CC782A7227D06B4100710482 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC782A7127D06B4100710482 /* RealmSwift */; };
 		CC7A5CFD27D190AB0086154C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A5CFC27D190AB0086154C /* DataModel.swift */; };
@@ -22,6 +26,7 @@
 		CC7A5D0A27D671DB0086154C /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A5D0827D671DB0086154C /* ProjectTableViewCell.swift */; };
 		CC7A5D0B27D671DB0086154C /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7A5D0927D671DB0086154C /* ProjectTableViewCell.xib */; };
 		CC7A5D0D27D678DD0086154C /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A5D0C27D678DD0086154C /* AddProjectViewController.swift */; };
+		CC951F0F280F242400C35DED /* TaskSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC951F0E280F242400C35DED /* TaskSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,12 +39,17 @@
 		CC5F64AB27CEDBD400141B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6ED99027DF958F008520B4 /* InsideProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideProjectViewController.swift; sourceTree = "<group>"; };
 		CC6ED99227E24B4E008520B4 /* BacklogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacklogTableViewController.swift; sourceTree = "<group>"; };
+		CC764EAD2804F4B500467477 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		CC764EAF280F006E00467477 /* TasksDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDataHandler.swift; sourceTree = "<group>"; };
+		CC764EB1280F02C100467477 /* SprintsDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintsDataHandler.swift; sourceTree = "<group>"; };
+		CC764EB3280F104100467477 /* SprintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintViewController.swift; sourceTree = "<group>"; };
 		CC7A5CFC27D190AB0086154C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CC7A5D0027D1962B0086154C /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
 		CC7A5D0227D199DC0086154C /* ProjectsDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsDataHandler.swift; sourceTree = "<group>"; };
 		CC7A5D0827D671DB0086154C /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		CC7A5D0927D671DB0086154C /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		CC7A5D0C27D678DD0086154C /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
+		CC951F0E280F242400C35DED /* TaskSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +86,17 @@
 			children = (
 				CC5F649D27CEDBD200141B62 /* AppDelegate.swift */,
 				CC7A5CFC27D190AB0086154C /* DataModel.swift */,
+				CC764EB1280F02C100467477 /* SprintsDataHandler.swift */,
 				CC5F649F27CEDBD200141B62 /* SceneDelegate.swift */,
 				CC5F64A327CEDBD200141B62 /* Main.storyboard */,
+				CC951F0E280F242400C35DED /* TaskSelectionViewController.swift */,
+				CC764EB3280F104100467477 /* SprintViewController.swift */,
+				CC764EAD2804F4B500467477 /* AddTaskViewController.swift */,
 				CC6ED99227E24B4E008520B4 /* BacklogTableViewController.swift */,
 				CC6ED99027DF958F008520B4 /* InsideProjectViewController.swift */,
 				CC7A5D0C27D678DD0086154C /* AddProjectViewController.swift */,
 				CC7A5D0227D199DC0086154C /* ProjectsDataHandler.swift */,
+				CC764EAF280F006E00467477 /* TasksDataHandler.swift */,
 				CC7A5D0027D1962B0086154C /* ProjectsTableViewController.swift */,
 				CC5F64A627CEDBD400141B62 /* Assets.xcassets */,
 				CC5F64A827CEDBD400141B62 /* LaunchScreen.storyboard */,
@@ -175,11 +190,16 @@
 				CC7A5D0327D199DC0086154C /* ProjectsDataHandler.swift in Sources */,
 				CC6ED99127DF958F008520B4 /* InsideProjectViewController.swift in Sources */,
 				CC7A5D0A27D671DB0086154C /* ProjectTableViewCell.swift in Sources */,
+				CC764EB0280F006E00467477 /* TasksDataHandler.swift in Sources */,
 				CC7A5CFD27D190AB0086154C /* DataModel.swift in Sources */,
 				CC5F649E27CEDBD200141B62 /* AppDelegate.swift in Sources */,
 				CC6ED99327E24B4E008520B4 /* BacklogTableViewController.swift in Sources */,
+				CC951F0F280F242400C35DED /* TaskSelectionViewController.swift in Sources */,
 				CC5F64A027CEDBD200141B62 /* SceneDelegate.swift in Sources */,
 				CC7A5D0127D1962B0086154C /* ProjectsTableViewController.swift in Sources */,
+				CC764EB2280F02C100467477 /* SprintsDataHandler.swift in Sources */,
+				CC764EAE2804F4B500467477 /* AddTaskViewController.swift in Sources */,
+				CC764EB4280F104100467477 /* SprintViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
