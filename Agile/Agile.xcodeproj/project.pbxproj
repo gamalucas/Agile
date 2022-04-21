@@ -27,6 +27,8 @@
 		CC7A5D0B27D671DB0086154C /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7A5D0927D671DB0086154C /* ProjectTableViewCell.xib */; };
 		CC7A5D0D27D678DD0086154C /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A5D0C27D678DD0086154C /* AddProjectViewController.swift */; };
 		CC951F0F280F242400C35DED /* TaskSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC951F0E280F242400C35DED /* TaskSelectionViewController.swift */; };
+		CCECF40F281046370067CC17 /* AddSprintTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCECF40E281046370067CC17 /* AddSprintTaskViewController.swift */; };
+		CCECF411281051F50067CC17 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCECF410281051F50067CC17 /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		CC7A5D0927D671DB0086154C /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		CC7A5D0C27D678DD0086154C /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		CC951F0E280F242400C35DED /* TaskSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionViewController.swift; sourceTree = "<group>"; };
+		CCECF40E281046370067CC17 /* AddSprintTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSprintTaskViewController.swift; sourceTree = "<group>"; };
+		CCECF410281051F50067CC17 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +93,10 @@
 				CC764EB1280F02C100467477 /* SprintsDataHandler.swift */,
 				CC5F649F27CEDBD200141B62 /* SceneDelegate.swift */,
 				CC5F64A327CEDBD200141B62 /* Main.storyboard */,
+				CCECF40E281046370067CC17 /* AddSprintTaskViewController.swift */,
 				CC951F0E280F242400C35DED /* TaskSelectionViewController.swift */,
 				CC764EB3280F104100467477 /* SprintViewController.swift */,
+				CCECF410281051F50067CC17 /* TaskViewController.swift */,
 				CC764EAD2804F4B500467477 /* AddTaskViewController.swift */,
 				CC6ED99227E24B4E008520B4 /* BacklogTableViewController.swift */,
 				CC6ED99027DF958F008520B4 /* InsideProjectViewController.swift */,
@@ -191,12 +197,14 @@
 				CC6ED99127DF958F008520B4 /* InsideProjectViewController.swift in Sources */,
 				CC7A5D0A27D671DB0086154C /* ProjectTableViewCell.swift in Sources */,
 				CC764EB0280F006E00467477 /* TasksDataHandler.swift in Sources */,
+				CCECF411281051F50067CC17 /* TaskViewController.swift in Sources */,
 				CC7A5CFD27D190AB0086154C /* DataModel.swift in Sources */,
 				CC5F649E27CEDBD200141B62 /* AppDelegate.swift in Sources */,
 				CC6ED99327E24B4E008520B4 /* BacklogTableViewController.swift in Sources */,
 				CC951F0F280F242400C35DED /* TaskSelectionViewController.swift in Sources */,
 				CC5F64A027CEDBD200141B62 /* SceneDelegate.swift in Sources */,
 				CC7A5D0127D1962B0086154C /* ProjectsTableViewController.swift in Sources */,
+				CCECF40F281046370067CC17 /* AddSprintTaskViewController.swift in Sources */,
 				CC764EB2280F02C100467477 /* SprintsDataHandler.swift in Sources */,
 				CC764EAE2804F4B500467477 /* AddTaskViewController.swift in Sources */,
 				CC764EB4280F104100467477 /* SprintViewController.swift in Sources */,

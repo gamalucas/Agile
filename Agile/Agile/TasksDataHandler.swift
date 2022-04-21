@@ -47,6 +47,22 @@ class TasksDataHandler {
         return projectTasks
     }
     
+    func getBacklogTasks(projectID: ObjectId)->[Tasks]{
+        var projectTasks = [Tasks]()
+        
+        if taskData.isEmpty == true{
+            print("No tasks for this project yet")
+            return projectTasks
+        }
+        
+        for i in taskData{
+            if i.projectID == projectID && i.isOnBacklog == true{
+                projectTasks.append(i)
+            }
+        }
+        return projectTasks
+    }
+    
     func getUnsolvedTasks(projectID: ObjectId)->[Tasks]{
         var unsolvedProjectTasks = [Tasks]()
         
@@ -63,6 +79,22 @@ class TasksDataHandler {
         return unsolvedProjectTasks
     }
     
+    func getTasksInSprint(projectID: ObjectId, sprintID: ObjectId)->[Tasks]{
+        var projectTasks = [Tasks]()
+        
+        if taskData.isEmpty == true{
+            print("No tasks related to this sprint yet")
+            return projectTasks
+        }
+        
+        for i in taskData{
+            if i.projectID == projectID && i.sprintID == sprintID{
+                projectTasks.append(i)
+            }
+        }
+        return projectTasks
+    }
+    
     func addTask(newTask: Tasks){
         do {
             try myRealm.write({
@@ -70,6 +102,74 @@ class TasksDataHandler {
             })
         } catch let err {
             print("Error during addTask: \(err.localizedDescription)")
+        }
+    }
+    
+    func updateTaskSprintID(currTask: Tasks, newSprintID: ObjectId){
+        do {
+            try myRealm.write({
+                if currTask.sprintID == newSprintID { //handle the case that you want to unselect an project (disconect if from Sprint ID)
+                    currTask.sprintID = currTask.tasksID //give a id that is not the same as the sprint ID
+                    currTask.isOnBacklog = false //remove task from backlog
+                }
+                else{
+                    currTask.sprintID = newSprintID
+                    currTask.isOnBacklog = false
+                }
+            })
+        } catch let error{
+            print("Error while updating task: \(error.localizedDescription)")
+        }
+    }
+    
+    func setDoneProperty(currTask: Tasks, isDone: Bool){
+        do{
+            try myRealm.write({
+                if isDone == true {
+                    currTask.taskConcluded = true
+                }
+                else{
+                    currTask.taskConcluded = false
+                }
+            })
+        } catch let error{
+            print("Error while updating task: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteTasks(projectID: ObjectId, sprintID: ObjectId?){
+        do{
+            try myRealm.write({
+                //search for project and sprint to delete tasks
+                if sprintID == nil { //if sprint ID is nill, it means that I'm deleting the whole project
+                    for (idx,task) in taskData.enumerated(){
+                        if task.projectID == projectID {
+                            myRealm.delete(taskData[idx])
+                        }
+                    }
+                }
+                else {
+                    for (idx,task) in taskData.enumerated(){
+                        if task.projectID == projectID && task.sprintID == sprintID {
+                            myRealm.delete(taskData[idx])
+                        }
+                    }
+                }
+            })
+            
+        } catch let error{
+            print("Error while deleting task: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteSingleTask(taskItem: Tasks){
+        do{
+            try myRealm.write({
+                myRealm.delete(taskItem)
+            })
+            
+        } catch let error{
+            print("Error while deleting task: \(error.localizedDescription)")
         }
     }
 }

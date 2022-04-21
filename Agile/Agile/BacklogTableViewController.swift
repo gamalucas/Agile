@@ -21,20 +21,17 @@ class BacklogTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("Current project id on Backlog: \(currProject.projectID)")
-        // need to call tasksInstance.dbSetup() in view did load
-        print("task data", tasksInstance.taskData.count)
-        backlogList = tasksInstance.getTasks(projectID: currProject.projectID)
         print("Backlog list: \(backlogList)")
         self.render()
     }
     
     func render(){
-        backlogList = tasksInstance.getTasks(projectID: currProject.projectID)
+        backlogList = tasksInstance.getBacklogTasks(projectID: currProject.projectID)
         tableView.reloadData()
         print("Backlog list: \(backlogList)")
     }
@@ -88,17 +85,17 @@ class BacklogTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let taskItem = backlogList[indexPath.row]
+            tasksInstance.deleteSingleTask(taskItem: taskItem)
+            self.render()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

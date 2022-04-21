@@ -27,6 +27,10 @@ class TaskSelectionViewController: UIViewController, UITableViewDelegate, UITabl
         print("Unsolved tasks list: \(unsolvedTasksList)")
     }
     
+    func render(){
+        unsolvedTasksTableView.reloadData()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -52,8 +56,24 @@ class TaskSelectionViewController: UIViewController, UITableViewDelegate, UITabl
         cellConfig.text = unsolvedTasksList[indexPath.row].taskTitle
         
         cell.contentConfiguration = cellConfig
-        cell.accessoryType = unsolvedTasksList[indexPath.row].taskConcluded ? .checkmark : .none //set checkmark if concluded
+        if  unsolvedTasksList[indexPath.row].sprintID == currSprint.sprintID{
+            cell.accessoryType = .checkmark
+        }
+        else{
+            cell.accessoryType = .none
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //logic for clicking in a row
+        //set task to sprint id
+        tasksInstance.updateTaskSprintID(currTask: unsolvedTasksList[indexPath.row], newSprintID: currSprint.sprintID)
+        self.render()
     }
 
 }

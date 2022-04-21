@@ -60,13 +60,30 @@ class SprintsDataHandler {
         return projectSprints
     }
     
-    func deleteSprint(sprintItem: Sprints){
+    //function to delete a SINGLE sprint
+    func deleteSingleSprint(sprintItem: Sprints){
         do{
             try myRealm.write({
                 myRealm.delete(sprintItem)
             })
         } catch let err{
-            print("Error during addProject: \(err.localizedDescription)")
+            print("Error while deleting a sprint: \(err.localizedDescription)")
+        }
+    }
+    
+    //function to delete ALL sprints associate with a project
+    func deleteSprints(projectID: ObjectId){
+        do{
+            try myRealm.write({
+                for (idx, sprints) in sprintsData.enumerated(){
+                    if sprints.projectID == projectID {
+                        myRealm.delete(sprintsData[idx])
+                    }
+                }
+            })
+            
+        } catch let err{
+            print("Error while deleting all sprints: \(err.localizedDescription)")
         }
     }
     

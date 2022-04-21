@@ -50,6 +50,7 @@ class InsideProjectViewController: UIViewController, UITableViewDelegate, UITabl
     
     func render(){
         sprintsList = sprintsInstance.getSprints(projectID: currProject.projectID)
+        sprintTableView.reloadData()
         print("Sprints in list: \(sprintsList)")
     }
     
